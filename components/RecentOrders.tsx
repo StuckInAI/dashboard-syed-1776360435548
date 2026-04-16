@@ -21,65 +21,65 @@ const orders: Order[] = [
 
 const statusConfig: Record<Order['status'], { label: string; className: string }> = {
   Completed: { label: 'Completed', className: 'bg-emerald-100 text-emerald-700' },
-  Processing: { label: 'Processing', className: 'bg-blue-100 text-blue-700' },
-  Pending: { label: 'Pending', className: 'bg-amber-100 text-amber-700' },
+  Processing: { label: 'Processing', className: 'bg-yellow-100 text-yellow-800' },
+  Pending: { label: 'Pending', className: 'bg-yellow-50 text-yellow-600 border border-yellow-300' },
   Cancelled: { label: 'Cancelled', className: 'bg-red-100 text-red-700' }
 };
 
 const avatarColors = [
-  'bg-blue-500',
-  'bg-purple-500',
-  'bg-emerald-500',
-  'bg-orange-500',
-  'bg-pink-500',
-  'bg-teal-500'
+  'bg-yellow-400',
+  'bg-yellow-500',
+  'bg-yellow-600',
+  'bg-yellow-300',
+  'bg-amber-400',
+  'bg-amber-500'
 ];
 
 export default function RecentOrders() {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-slate-100">
-      <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+    <div className="bg-white rounded-xl shadow-sm border border-yellow-200">
+      <div className="p-6 border-b border-yellow-100 flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-bold text-slate-800">Recent Orders</h2>
-          <p className="text-slate-500 text-sm mt-0.5">Latest customer transactions</p>
+          <h2 className="text-lg font-bold text-black">Recent Orders</h2>
+          <p className="text-yellow-700 text-sm mt-0.5">Latest customer transactions</p>
         </div>
-        <button className="text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors">
+        <button className="text-sm text-yellow-600 font-medium hover:text-yellow-800 transition-colors">
           View all
         </button>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-slate-100">
-              <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-6 py-3">Order</th>
-              <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-6 py-3">Customer</th>
-              <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-6 py-3">Product</th>
-              <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-6 py-3">Amount</th>
-              <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-6 py-3">Status</th>
-              <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-6 py-3">Date</th>
+            <tr className="border-b border-yellow-100 bg-yellow-50">
+              <th className="text-left text-xs font-semibold text-yellow-700 uppercase tracking-wider px-6 py-3">Order</th>
+              <th className="text-left text-xs font-semibold text-yellow-700 uppercase tracking-wider px-6 py-3">Customer</th>
+              <th className="text-left text-xs font-semibold text-yellow-700 uppercase tracking-wider px-6 py-3">Product</th>
+              <th className="text-left text-xs font-semibold text-yellow-700 uppercase tracking-wider px-6 py-3">Amount</th>
+              <th className="text-left text-xs font-semibold text-yellow-700 uppercase tracking-wider px-6 py-3">Status</th>
+              <th className="text-left text-xs font-semibold text-yellow-700 uppercase tracking-wider px-6 py-3">Date</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-50">
+          <tbody className="divide-y divide-yellow-50">
             {orders.map((order, index) => {
               const sc = statusConfig[order.status];
               return (
-                <tr key={order.id} className="hover:bg-slate-50 transition-colors">
+                <tr key={order.id} className="hover:bg-yellow-50 transition-colors">
                   <td className="px-6 py-4">
-                    <span className="text-sm font-mono text-slate-500">{order.id}</span>
+                    <span className="text-sm font-mono text-yellow-700">{order.id}</span>
                   </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-full ${avatarColors[index % avatarColors.length]} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}>
+                      <div className={`w-8 h-8 rounded-full ${avatarColors[index % avatarColors.length]} flex items-center justify-center text-black text-xs font-bold flex-shrink-0`}>
                         {order.avatar}
                       </div>
-                      <span className="text-sm font-medium text-slate-700">{order.customer}</span>
+                      <span className="text-sm font-medium text-black">{order.customer}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="text-sm text-slate-600">{order.product}</span>
+                    <span className="text-sm text-yellow-800">{order.product}</span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="text-sm font-semibold text-slate-800">{order.amount}</span>
+                    <span className="text-sm font-semibold text-black">{order.amount}</span>
                   </td>
                   <td className="px-6 py-4">
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${sc.className}`}>
@@ -87,7 +87,7 @@ export default function RecentOrders() {
                     </span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className="text-sm text-slate-500">{order.date}</span>
+                    <span className="text-sm text-yellow-700">{order.date}</span>
                   </td>
                 </tr>
               );

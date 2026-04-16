@@ -20,13 +20,13 @@ export default function TopProducts() {
   const maxSales = Math.max(...products.map((p) => p.sales));
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-slate-100 h-full">
-      <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+    <div className="bg-white rounded-xl shadow-sm border border-yellow-200 h-full">
+      <div className="p-6 border-b border-yellow-100 flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-bold text-slate-800">Top Products</h2>
-          <p className="text-slate-500 text-sm mt-0.5">Best performing items</p>
+          <h2 className="text-lg font-bold text-black">Top Products</h2>
+          <p className="text-yellow-700 text-sm mt-0.5">Best performing items</p>
         </div>
-        <button className="text-sm text-blue-600 font-medium hover:text-blue-700 transition-colors">
+        <button className="text-sm text-yellow-600 font-medium hover:text-yellow-800 transition-colors">
           View all
         </button>
       </div>
@@ -36,7 +36,7 @@ export default function TopProducts() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-lg">{product.icon}</span>
-                <span className="text-sm font-medium text-slate-700">{product.name}</span>
+                <span className="text-sm font-medium text-black">{product.name}</span>
               </div>
               <span
                 className={`text-xs font-semibold ${
@@ -47,15 +47,15 @@ export default function TopProducts() {
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex-1 bg-slate-100 rounded-full h-1.5">
+              <div className="flex-1 bg-yellow-100 rounded-full h-1.5">
                 <div
-                  className="bg-blue-500 h-1.5 rounded-full transition-all duration-500"
+                  className="bg-yellow-400 h-1.5 rounded-full transition-all duration-500"
                   style={{ width: `${(product.sales / maxSales) * 100}%` }}
                 ></div>
               </div>
-              <span className="text-xs text-slate-500 w-16 text-right">{product.sales.toLocaleString()} sales</span>
+              <span className="text-xs text-yellow-700 w-16 text-right">{product.sales.toLocaleString()} sales</span>
             </div>
-            <p className="text-xs text-slate-500">{product.revenue} revenue</p>
+            <p className="text-xs text-yellow-600">{product.revenue} revenue</p>
           </div>
         ))}
       </div>
